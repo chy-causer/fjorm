@@ -22,6 +22,7 @@ module Fjorm
       @title = options[:title] || @name.to_s.titleize
       @onerror = options[:onerror]
       @html_id = options[:html_id] || @name
+      @label_tag = options[:label_tag] || "<label for='#{@name}'> #{@title} </label>"
     end
 
     def errors?
@@ -29,16 +30,12 @@ module Fjorm
     end
 
     def to_p(error = false)
-      return <<EOF
-<p>
-  <label for='#{@name}'>
-    #{@title}: 
-  </label>
-  <input type='#{@type}' id='#{@html_id}' name='#{@name}' value='#{@value}' />
-</p>
-EOF
+      "<p> #{@label_tag} <input type='#{@type}' id='#{@html_id}' name='#{@name}' value='#{@value}' /></p>"
     end
 
+    def to_tr(error = false)
+      "<tr><td> #{@label_tag}</td><td>#{@input_tag}</td></tr>"
+    end
   end
 
   class TextField <Field
@@ -52,15 +49,12 @@ EOF
 
   class SubmitField <Field
     @defaults = {:type=>'submit',
-      :name=>:submit, :value=>'Submit'
+      :name=>:submit, :value=>'Submit',
+      :label_tag => ''
     }
 
     def initialize(kwargs={})
       super 'submit'
-    end
-
-    def to_p
-      return "<input type='#{@type}' name='#{@name}' value='#{@value}' /></p>"
     end
   end
 
@@ -68,11 +62,7 @@ EOF
     @defaults = {}
     def to_p
       return <<EOF
-<p>
-  <label for='#{@name}'>
-    #{@title}
-  </label>
-</p>
+<p> #{@label_tag} </p>
 <p>
   <textarea id='#{@html_id}' name='#{@name}'>#{@value}</textarea>
 </p>

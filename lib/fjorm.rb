@@ -42,9 +42,11 @@ module Fjorm
     end
 
     def as_paragraph()
-      @fields.map{|field|
-        field.to_p
-      }.join("\n")
+      @fields.map(&:to_p).join("\n")
+    end
+
+    def as_table()
+      "<table>" + @fields.map(&:to_tr).join("\n") + "</table>"
     end
 
     private
