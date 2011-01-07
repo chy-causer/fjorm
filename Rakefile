@@ -15,9 +15,9 @@ Jeweler::Tasks.new do |gem|
   gem.name = "fjorm"
   gem.homepage = "http://github.com/ChrisCauser/fjorm"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "c.causer1@physics.ox.ac.uk"
+  gem.summary = %Q{Form helper for Ruby web frameworks}
+  gem.description = %Q{Form helper for a Ruby Web framework (I currently use it with Sinatra.) Based heavily on Django's newforms module.}
+  gem.email = "chy.causer@gmail.com"
   gem.authors = ["Chris Causer"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
