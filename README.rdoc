@@ -1,6 +1,8 @@
 = fjorm
 
-Description goes here.
+Form helper for a Ruby Web framework (I currently use it with Sinatra.) Based heavily on Django's newforms module.
+
+Heavy in development and not ready for public use.
 
 == Contributing to fjorm
  
