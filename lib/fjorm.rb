@@ -55,14 +55,4 @@ module Fjorm
       end
     end
   end
-
-  class ContactForm < Form
-    @fields = [
-    [EmailField, 'email', {:onerror=>'Email is not valid'}],
-    [TextField, 'name', {:regexp => /.+/,
-               :onerror => 'Name cannot be blank'}],
-    [TextAreaField, 'body', {:title=>'Message'}],
-    [SubmitField]
-    ]
-  end
 end
