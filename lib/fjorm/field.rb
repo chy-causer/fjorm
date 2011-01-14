@@ -17,7 +17,7 @@ module Fjorm
       @defaults = base_defaults.merge added_defaults
       options = @defaults.merge kwargs
       @type = options[:type]
-      @value = escape_html options[:value] 
+      @value = escape_html options[:value]
       @regexp = options[:regexp]
       @title = options[:title] || @name.to_s.titleize
       @onerror = options[:onerror]
